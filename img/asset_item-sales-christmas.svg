@@ -10,27 +10,27 @@
 	<g>
 		<g>
 			<g>
-				<polygon fill="#FF5533" points="50,36.5 19.1,79.2 80.9,79.2 				"/>
+				<polygon fill="#FF5533" points="50,32.5 10,87.9 90,87.9 				"/>
 			</g>
 		</g>
 		<g>
 			<g>
-				<polygon fill="#FF5533" points="50,28.5 28.2,58.7 71.8,58.7 				"/>
+				<polygon fill="#FF5533" points="50,22.2 21.7,61.3 78.3,61.3 				"/>
 			</g>
 		</g>
 		<g>
 			<g>
-				<polygon fill="#FF5533" points="50,20.8 37.1,38.6 62.9,38.6 				"/>
+				<polygon fill="#FF5533" points="50,12.1 33.3,35.2 66.7,35.2 				"/>
 			</g>
 		</g>
 		<g>
-			<circle fill="#3C4D27" cx="39" cy="70.2" r="4.7"/>
+			<circle fill="#3C4D27" cx="39" cy="75.2" r="4.7"/>
 		</g>
 		<g>
-			<circle fill="#3C4D27" cx="59" cy="58.2" r="4.7"/>
+			<circle fill="#3C4D27" cx="59" cy="61.2" r="4.7"/>
 		</g>
 		<g>
-			<circle fill="#3C4D27" cx="42" cy="45.2" r="4.7"/>
+			<circle fill="#3C4D27" cx="46" cy="44.2" r="4.7"/>
 		</g>
 	</g>
 </g>

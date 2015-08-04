@@ -1,4 +1,5 @@
 // NATIVE
+// ============================================================
 
 * {
 	transition: all .1s ease-in-out;
@@ -8,13 +9,28 @@ body {
 	@include media($tablet) {
 		@include margin(5em);
 	}
-	@include margin(1em);
+	@include margin(2em);
 	color: $green;
+	@include media(min-width $desktop) {
+		background-image: url('../img/asset_trim-top-left.svg'),
+		                  url('../img/asset_trim-top-right.svg'),
+		                  url('../img/asset_trim-bottom-left.svg'),
+		                  url('../img/asset_trim-bottom-right.svg');
+		background-position: top 1em left 1em,
+		                     top 1em right 1em,
+		                     bottom 1em left 1em,
+		                     bottom 1em right 1em;
+		background-size: 8em;
+		background-repeat: no-repeat;
+	}
 }
 
 a {
 	color: $red;
 	text-decoration: none;
+	&:hover {
+		color: darken($red,10);
+	}
 }
 
 h1, h2, h3, h4, p {
@@ -30,14 +46,18 @@ h1 {
 	line-height: .8em;
 	color: $red;
 	text-shadow: -10px 10px 0 $light;
-	@include media($tablet) {
-		line-height: 0;
+	@include media(max-width $tablet) {
+		font-size: 4em;
+		line-height: 1em;
 	}
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 3em;
 	line-height: 1em;
+	@include media(max-width $tablet) {
+		font-size: 2em;
+	}
 }
 
 h3, h4, p {
@@ -51,6 +71,14 @@ h3, h4 {
 
 h3 {
 	font-size: 1.8em;
+	@include media(max-width $tablet) {
+		font-size: 1.4em;
+		// line-height: 1em;
+	}
+}
+
+h4 {
+	letter-spacing: .2em;
 }
 
 p {
@@ -58,20 +86,58 @@ p {
 }
 
 // SELECTORS
+// ============================================================
 
 .section {
+	@include outer-container;
 	@include media($tablet) {
 		@include margin(null null 6em);
 	}
 	@include margin(null null 3em);
 }
 
+.title {
+	* {
+		clear: both;
+	}
+}
+
+.title-stroke {
+	@include media(min-width $portrait) {
+		@include row();
+		border-top: 6px solid $green;
+		text-align: center;
+		position: relative;
+		* {
+			@include margin(0);
+			@include pad(.2em 1.4rem);
+			background-color: $white;
+			display: inline-block;
+			position: relative;
+			@include media(min-width $portrait) {
+				line-height: 1rem;
+				top: -1rem;
+			}
+		}
+	}
+}
+
+.title-stroke-half {
+	@include media(min-width $desktop) {
+		@include span-columns(5);
+		@include shift(3.5);
+	}
+	@include span-columns(12);
+}
+
 .button {
+	@include margin(3em null null);
 	@include pad(1em);
 	@include row();
 	color: $white;
 	background-color: $red;
 	&:hover {
+		color: $white;
 		background-color: darken($red,10);
 	}
 }
@@ -90,6 +156,10 @@ p {
 	.items-message-item-give:before {
 		content: "Spread the ";
 	}
+}
+
+.items-message {
+	@include margin(3em null null);
 }
 
 .items-sales-item {
