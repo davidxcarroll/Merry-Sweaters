@@ -1,0 +1,111 @@
+// NATIVE
+
+* {
+	transition: all .1s ease-in-out;
+}
+
+body {
+	@include media($tablet) {
+		@include margin(5em);
+	}
+	@include margin(1em);
+	color: $green;
+}
+
+a {
+	color: $red;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, p {
+	@include text-align(center);
+}
+
+h1, h2 {
+	font-family: 'Playball', cursive;
+}
+
+h1 {
+	font-size: 6em;
+	line-height: .8em;
+	color: $red;
+	text-shadow: -10px 10px 0 $light;
+	@include media($tablet) {
+		line-height: 0;
+	}
+}
+
+h2 {
+	font-size: 2em;
+	line-height: 1em;
+}
+
+h3, h4, p {
+	font-family: 'Lato', sans-serif;
+}
+
+h3, h4 {
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+p {
+	font-weight: 400;
+}
+
+// SELECTORS
+
+.section {
+	@include media($tablet) {
+		@include margin(null null 6em);
+	}
+	@include margin(null null 3em);
+}
+
+.button {
+	@include pad(1em);
+	@include row();
+	color: $white;
+	background-color: $red;
+	&:hover {
+		background-color: darken($red,10);
+	}
+}
+
+.image {
+	@include fill-parent;
+}
+
+@include media($tablet) {
+	.items-message-item-rent:after {
+		content: " a Sweater";
+	}
+	.items-message-item-party:before {
+		content: "Throw a ";
+	}
+	.items-message-item-give:before {
+		content: "Spread the ";
+	}
+}
+
+.items-sales-item {
+	@include margin(null null 1em);
+	@include pad(2em);
+	border: 6px solid $green;
+	background-color: $light;
+	box-shadow: inset -10px 10px 0 $white, -16px 16px 0 $light;
+	@include media($tablet) {
+		@include margin(0);
+	}
+}
+
+.items-sales-image {
+	@include row(table);
+	@include span-columns(4);
+	@include shift(4);
+}
+
