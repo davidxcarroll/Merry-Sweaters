@@ -7,7 +7,7 @@
 
 body {
 	@include media($tablet) {
-		@include margin(5em);
+		@include margin(8em null);
 	}
 	@include margin(2em);
 	color: $green;
@@ -15,12 +15,16 @@ body {
 		background-image: url('../img/asset_trim-top-left.svg'),
 		                  url('../img/asset_trim-top-right.svg'),
 		                  url('../img/asset_trim-bottom-left.svg'),
-		                  url('../img/asset_trim-bottom-right.svg');
+		                  url('../img/asset_trim-bottom-right.svg'),
+		                  url('../img/asset_trim-hr.svg'),
+		                  url('../img/asset_trim-hr.svg');
 		background-position: top 1em left 1em,
 		                     top 1em right 1em,
 		                     bottom 1em left 1em,
-		                     bottom 1em right 1em;
-		background-size: 8em;
+		                     bottom 1em right 1em,
+		                     top 1.2em center,
+		                     bottom 1.2em center;
+		background-size: 8em, 8em, 8em, 8em, 13em, 13em;
 		background-repeat: no-repeat;
 	}
 }
@@ -42,8 +46,9 @@ h1, h2 {
 }
 
 h1 {
+	@include margin(0);
 	font-size: 6em;
-	line-height: .8em;
+	// line-height: .8em;
 	color: $red;
 	text-shadow: -10px 10px 0 $light;
 	@include media(max-width $tablet) {
@@ -72,7 +77,7 @@ h3, h4 {
 h3 {
 	font-size: 1.8em;
 	@include media(max-width $tablet) {
-		font-size: 1.4em;
+		font-size: 1.2em;
 		// line-height: 1em;
 	}
 }
@@ -96,7 +101,8 @@ p {
 	@include margin(null null 3em);
 }
 
-.title {
+.title,
+footer {
 	* {
 		clear: both;
 	}
@@ -105,6 +111,10 @@ p {
 .title-stroke {
 	@include media(min-width $portrait) {
 		@include row();
+		@include media(min-width $portrait) {
+			height: 4em;
+			@include margin(4em null null);
+		}
 		border-top: 6px solid $green;
 		text-align: center;
 		position: relative;
@@ -130,12 +140,22 @@ p {
 	@include span-columns(12);
 }
 
-.button {
+.button-banner {
+	// display: inline-block;
+	@include span-columns(10);
+	@include shift(1);
 	@include margin(3em null null);
-	@include pad(1em);
-	@include row();
+	@include pad(.2em 4em);
 	color: $white;
 	background-color: $red;
+	// background-image: url('../img/asset_button-banner-left.svg'),
+	//                   url('../img/asset_button-banner-right.svg');
+	// background-position: top -3em left -10em,
+	//                      top -3em right -10em;
+	// background-size: 10em,
+	//                  10em;
+	background-repeat: no-repeat;
+	box-shadow: -16px 16px 0 $light;
 	&:hover {
 		color: $white;
 		background-color: darken($red,10);
@@ -144,6 +164,10 @@ p {
 
 .image {
 	@include fill-parent;
+}
+
+.photo {
+	box-shadow: -16px 16px 0 $light;
 }
 
 @include media($tablet) {
@@ -156,10 +180,6 @@ p {
 	.items-message-item-give:before {
 		content: "Spread the ";
 	}
-}
-
-.items-message {
-	@include margin(3em null null);
 }
 
 .items-sales-item {
