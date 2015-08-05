@@ -4,9 +4,10 @@ $red:   #f53;
 $green: #3c4d27;
 $black: #000;
 
-$desktop:  1024px;
-$tablet:   768px;
-$portrait: 480px;
+$widescreen: 1200px;
+$desktop:    1024px;
+$tablet:     768px;
+$portrait:   480px;
 
 @mixin text-align($alignment) {
 	text-align: $alignment;
