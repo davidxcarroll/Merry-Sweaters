@@ -435,7 +435,7 @@ h2 {
       font-size: 2em; } }
 
 h3, h4 {
-  font-family: "Rye", serif; }
+  font-family: "Caesar Dressing", serif; }
 
 h3, h4 {
   font-weight: 900;
@@ -447,11 +447,6 @@ h3 {
 h4 {
   letter-spacing: .2em; }
 
-@media screen and (max-width: 768px) {
-  h3, h4 {
-    font-size: 1.2em;
-    letter-spacing: 0; } }
-
 p {
   font-family: "Lato", sans-serif;
   font-weight: 400; }
@@ -460,14 +455,16 @@ p {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 3em; }
+  margin-top: 1em;
+  margin-bottom: 1em; }
   .section::after {
     clear: both;
     content: "";
     display: table; }
   @media screen and (min-width: 768px) {
     .section {
-      margin-bottom: 4em; } }
+      margin-top: 3em;
+      margin-bottom: 3em; } }
 
 .title *,
 footer * {
@@ -498,8 +495,8 @@ footer * {
 
 .button-banner {
   width: 68em;
-  height: 14.6em;
-  padding: 1em;
+  height: 12.2em;
+  padding: 0.4em;
   margin-top: 3em;
   margin-right: auto;
   margin-left: auto;
@@ -516,8 +513,8 @@ footer * {
   @media screen and (max-width: 1200px) {
     .button-banner {
       width: 50em;
-      height: 10.75em;
-      padding: 1.2em; }
+      height: 8.9em;
+      padding: 0.6em; }
       .button-banner * {
         line-height: 0; } }
   @media screen and (max-width: 768px) {

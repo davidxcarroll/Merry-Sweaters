@@ -94,12 +94,12 @@ h4 {
 	letter-spacing: .2em;
 }
 
-h3, h4 {
-	@include media(max-width $tablet) {
-		font-size: 1.2em;
-		letter-spacing: 0;
-	}
-}
+// h3, h4 {
+// 	@include media(max-width $tablet) {
+// 		font-size: 1.2em;
+// 		letter-spacing: 0;
+// 	}
+// }
 
 p {
 	font-family: $font-body;
@@ -112,9 +112,9 @@ p {
 .section {
 	@include outer-container;
 	@include media($tablet) {
-		@include margin(null null 4em);
+		@include margin(3em null);
 	}
-	@include margin(null null 3em);
+	@include margin(1em null);
 }
 
 // TITLES
@@ -156,8 +156,8 @@ footer {
 
 .button-banner {
 	width: 68em;
-  height: 14.6em;
-  @include pad(1em null null null);
+  height: 12.2em;
+  @include pad(.4em null null null);
   
   @include media(max-width $tablet) {
 	  * {
@@ -167,8 +167,8 @@ footer {
   
   @include media(max-width $widescreen) {
 	  width: 50em;
-    height: 10.75em;
-	  @include pad(1.2em null null null);
+    height: 8.9em;
+	  @include pad(.6em null null null);
 	  * {
   		line-height: 0;
   	}
