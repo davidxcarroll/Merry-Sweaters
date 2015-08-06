@@ -1,0 +1,263 @@
+// NATIVE
+// ============================================================
+
+* {
+	transition: all .1s ease-in-out;
+}
+
+// BODY
+// ====================
+
+body {
+	@include media($tablet) {
+		@include margin(8em null);
+	}
+	@include margin(6em 2em);
+	color: $green;
+	background-image: url('../img/asset_trim-hr-down.svg'),
+		                url('../img/asset_trim-hr-up.svg');
+	background-position: top 1em center,
+	                     bottom 1em center;
+	background-size: 13em, 13em;
+	background-repeat: no-repeat;
+	@include media(min-width $desktop) {
+		background-image: url('../img/asset_trim-top-left.svg'),
+		                  url('../img/asset_trim-top-right.svg'),
+		                  url('../img/asset_trim-bottom-left.svg'),
+		                  url('../img/asset_trim-bottom-right.svg'),
+		                  url('../img/asset_trim-hr-down.svg'),
+		                	url('../img/asset_trim-hr-up.svg');
+		background-position: top 1em left 1em,
+		                     top 1em right 1em,
+		                     bottom 1em left 1em,
+		                     bottom 1em right 1em,
+		                     top 1em center,
+	                     	 bottom 1em center;
+		background-size: 8em, 8em, 8em, 8em, 13em, 13em;
+		background-repeat: no-repeat;
+	}
+}
+
+// LINKS
+// ====================
+
+a {
+	color: $red;
+	text-decoration: none;
+}
+
+// TYPE
+// ====================
+
+h1, h2, h3, h4, p {
+	@include text-align(center);
+}
+
+h1, h2 {
+	font-family: $font-display;
+}
+
+h1 {
+	@include margin(0);
+	font-size: 6em;
+	// line-height: .8em;
+	color: $red;
+	text-shadow: -10px 10px 0 $light;
+	@include media(max-width $tablet) {
+		font-size: 4em;
+		line-height: 1em;
+	}
+}
+
+h2 {
+	font-size: 3em;
+	line-height: 1em;
+	@include media(max-width $tablet) {
+		font-size: 2em;
+	}
+}
+
+h3, h4 {
+	font-family: $font-heading;
+}
+
+h3, h4 {
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 1.8em;
+}
+
+h4 {
+	letter-spacing: .2em;
+}
+
+h3, h4 {
+	@include media(max-width $tablet) {
+		font-size: 1.2em;
+		letter-spacing: 0;
+	}
+}
+
+p {
+	font-family: $font-body;
+	font-weight: 400;
+}
+
+// SELECTORS
+// ============================================================
+
+.section {
+	@include outer-container;
+	@include media($tablet) {
+		@include margin(null null 4em);
+	}
+	@include margin(null null 3em);
+}
+
+// TITLES
+// ====================
+
+.title,
+footer {
+	* {
+		clear: both;
+	}
+}
+
+.title-stroke {
+	@include media(min-width $portrait) {
+		display: block;
+		@include media(min-width $portrait) {
+			height: 4em;
+			@include margin(4em null null);
+		}
+		border-top: 6px solid $green;
+		text-align: center;
+		position: relative;
+		* {
+			@include margin(0);
+			@include pad(.2em 1.4rem);
+			background-color: $white;
+			display: inline-block;
+			position: relative;
+			@include media(min-width $portrait) {
+				line-height: 1rem;
+				top: -1rem;
+			}
+		}
+	}
+}
+
+// BUTTONS
+// ====================
+
+.button-banner {
+	width: 68em;
+  height: 14.6em;
+  @include pad(1em null null null);
+  
+  @include media(max-width $tablet) {
+	  * {
+  		line-height: 0;
+  	}
+  }
+  
+  @include media(max-width $widescreen) {
+	  width: 50em;
+    height: 10.75em;
+	  @include pad(1.2em null null null);
+	  * {
+  		line-height: 0;
+  	}
+  }
+  
+  @include media(max-width $tablet) {
+  	width: auto;
+  	height: auto;
+  	background-image: none;
+  	box-shadow: -16px 16px 0 $light;
+  	@include margin(null null 3em);
+  	@include pad(2em 0);
+  }
+
+	@include margin(3em auto null);
+	// display: block;
+	@include row();
+	@include media(max-width $tablet) {
+		@include pad(.2em 1em);
+	}
+	color: $white;
+	background-image: url("../img/asset_button-banner-outline.svg");
+	background-size: contain;
+	background-color: $red;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+// IMAGES
+// ====================
+
+.image {
+	@include fill-parent;
+}
+
+.photo {
+	box-shadow: -16px 16px 0 $light;
+}
+
+// COMBOS
+// ====================
+
+@include media($tablet) {
+	.items-message-item-rent:after {
+		content: " a Sweater";
+	}
+	.items-message-item-party:before {
+		content: "Throw a ";
+	}
+	.items-message-item-give:before {
+		content: "Spread the ";
+	}
+}
+
+.items-sales-item {
+	@include margin(null null 1em);
+	@include pad(1em 0 8em);
+	@include media(max-width $desktop min-width $tablet) {
+		@include pad(2em 0 10em);
+	}
+	@include media(max-width $tablet) {
+		@include pad(2em 0);
+	}
+	// @include media(min-width $tablet) {
+	// 	@include pad(2em 0);
+	// }
+	border: 6px solid $green;
+	background-color: $light;
+	box-shadow: inset -10px 10px 0 $white, -16px 16px 0 $light;
+	position: relative;
+	@include media($tablet) {
+		@include margin(0);
+	}
+	p {
+		@include pad(0 2em);
+		position: absolute;
+		@include media(max-width $tablet) {
+			position: static;
+		}
+	}
+}
+
+.items-sales-image {
+	@include row(table);
+	@include span-columns(4);
+	@include shift(4);
+	// @include media(max-width $tablet) {
+	// 	@include span-columns(2);
+	// 	@include shift(5);
+	// }
+}
+
