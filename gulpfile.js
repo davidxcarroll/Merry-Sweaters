@@ -21,19 +21,17 @@ gulp.task('default',function() {
 // FTP
 // ============================================================
 
-// var gulp = require('gulp');
-// var gutil = require('gulp-util');
-// var ftp = require('gulp-ftp');
+var gulp = require('gulp');
+var gulpDeployFtp = require('gulp-deploy-ftp');
  
-// gulp.task('default', function () {
-//     return gulp.src('src/*')
-//         .pipe(ftp({
-//             host: 'david.pizza',
-//             user: 'david.pizza',
-//             pass: '3HubbardAve!'
-//         }))
-//         // you need to have some kind of stream after gulp-ftp to make sure it's flushed 
-//         // this can be a gulp plugin, gulp.dest, or any kind of stream 
-//         // here we use a passthrough stream
-//         .pipe(gutil.noop());
-// });
+var options = {
+  user: david.pizza,
+  password: 3HubbardAve!,
+  port: 22,
+  host: s14088.gridserver.com,
+  uploadPath: domains/david.pizza/html/sweaters
+};
+ 
+gulp.src('path/to/file')
+  .pipe(gulpDeployFtp(options))
+  .pipe(gulp.dest('dest'));
