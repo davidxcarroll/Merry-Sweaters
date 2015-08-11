@@ -21,17 +21,17 @@ gulp.task('default',function() {
 // FTP
 // ============================================================
 
-var gulp = require('gulp');
-var gulpDeployFtp = require('gulp-deploy-ftp');
+// var gulp = require('gulp');
+// var gulpDeployFtp = require('gulp-deploy-ftp');
  
-var options = {
-  user: david.pizza,
-  password: 3HubbardAve!,
-  port: 22,
-  host: s14088.gridserver.com,
-  uploadPath: domains/david.pizza/html/sweaters
-};
+// var options = {
+//   user: david.pizza,
+//   password: 3HubbardAve!,
+//   port: 22,
+//   host: s14088.gridserver.com,
+//   uploadPath: domains/david.pizza/html/sweaters
+// };
  
-gulp.src('path/to/file')
-  .pipe(gulpDeployFtp(options))
-  .pipe(gulp.dest('dest'));
+// gulp.src('path/to/file')
+//   .pipe(gulpDeployFtp(options))
+//   .pipe(gulp.dest('dest'));

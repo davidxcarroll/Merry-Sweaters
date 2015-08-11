@@ -144,45 +144,27 @@ footer {
 // BUTTONS
 // ====================
 
-// .button-banner {
-// 	@include row();
-//   @include margin(null null 6em);
-//   @include pad(.2em null);
-// 	background-color: $red;
-// 	color: $white;
-// }
-
 .button-banner {
-	@include row();
-  height: 12.2em;
-	@include margin(null auto);
-  @include pad(.4em null null null);
-  color: $light;
-	background-image: url("../img/asset_button-banner-outline.svg");
-	background-size: contain;
-	background-color: $red;
-	background-repeat: no-repeat;
-	position: relative;
-
-  @include media(max-width $widescreen min-width $tablet) {
-	  * {
-  		@include margin(.4em null null);
-  	}
-  }
-  @include media(max-width $widescreen) {
-	  width: 50em;
-    height: 8.9em;
-	  @include pad(.6em null null null);
-  }
-  @include media(max-width $tablet) {
-  	width: auto;
-  	height: auto;
-  	background-image: none;
-  	box-shadow: -16px 16px 0 $light;
-  	@include margin(null null 3em);
-  }
-	@include media(max-width $tablet) {
-		@include pad(.2em 1em);
+	@include media(min-width $desktop) {
+		@include row();
+		color: $white;
+	  @include margin(null auto);
+	  @include pad(2.5em 0 5.5em);
+		background-image: url('../img/asset_button-banner.svg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center center;
+	}
+	@include media(max-width $desktop) {
+		@include row();
+		color: $white;
+	  @include margin(null auto 3em);
+	  @include pad(1.4em 0);
+		background-color: $red;
+		box-shadow: -16px 16px 0 $light;
+	}
+	h2 {
+		@include margin(0);
 	}
 }
 
@@ -200,6 +182,27 @@ footer {
 		@include margin(0);
 		@include fill-parent;
 		@include shift(0);
+	}
+}
+
+.items-message-item {
+	text-align: center;
+	@include media(min-width $desktop) {
+		@include pad(3em 3em 0 3em);
+		text-align: center;
+		background-image: url('../img/asset_message-sweater.svg');
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		img {
+			@include size(50%);
+			@include margin(1em null 4em);
+		}
+	}
+	@include media(max-width $desktop min-width $portrait) {
+		img {
+			@include size(50%);
+		}
 	}
 }
 
@@ -250,13 +253,12 @@ footer {
 	@include row(table);
 	@include span-columns(4);
 	@include shift(4);
-	// @include media(max-width $tablet) {
-	// 	@include span-columns(2);
-	// 	@include shift(5);
-	// }
 }
 
 footer.section {
-	@include margin(6em null null);
+	@include media(min-width $tablet){
+		@include margin(6em null null);
+		@include pad(null null 2em);
+	}
 	border-top: 6px solid $green;
 }

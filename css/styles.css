@@ -489,40 +489,39 @@ footer * {
     line-height: 1em;
     background-color: #fff; }
 
-.button-banner {
-  display: block;
-  height: 12.2em;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 0.4em;
-  color: #f2f2e7;
-  background-image: url("../img/asset_button-banner-outline.svg");
-  background-size: contain;
-  background-color: #f53;
-  background-repeat: no-repeat;
-  position: relative; }
-  .button-banner::after {
-    clear: both;
-    content: "";
-    display: table; }
-  @media screen and (max-width: 1200px) and (min-width: 768px) {
-    .button-banner * {
-      margin-top: 0.4em; } }
-  @media screen and (max-width: 1200px) {
-    .button-banner {
-      width: 50em;
-      height: 8.9em;
-      padding: 0.6em; } }
-  @media screen and (max-width: 768px) {
-    .button-banner {
-      width: auto;
-      height: auto;
-      background-image: none;
-      box-shadow: -16px 16px 0 #f2f2e7;
-      margin-bottom: 3em; } }
-  @media screen and (max-width: 768px) {
-    .button-banner {
-      padding: 0.2em 1em; } }
+@media screen and (min-width: 1024px) {
+  .button-banner {
+    display: block;
+    color: #fff;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 2.5em 0 5.5em;
+    background-image: url("../img/asset_button-banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; }
+    .button-banner::after {
+      clear: both;
+      content: "";
+      display: table; } }
+
+@media screen and (max-width: 1024px) {
+  .button-banner {
+    display: block;
+    color: #fff;
+    margin-right: auto;
+    margin-bottom: 3em;
+    margin-left: auto;
+    padding: 1.4em 0;
+    background-color: #f53;
+    box-shadow: -16px 16px 0 #f2f2e7; }
+    .button-banner::after {
+      clear: both;
+      content: "";
+      display: table; } }
+
+.button-banner h2 {
+  margin: 0; }
 
 .photo {
   float: left;
@@ -541,6 +540,26 @@ footer * {
       margin: 0;
       width: 100%;
       margin-left: 0%; } }
+
+.items-message-item {
+  text-align: center; }
+  @media screen and (min-width: 1024px) {
+    .items-message-item {
+      padding: 3em 3em 0 3em;
+      text-align: center;
+      background-image: url("../img/asset_message-sweater.svg");
+      background-position: top center;
+      background-repeat: no-repeat;
+      background-size: contain; }
+      .items-message-item img {
+        height: 50%;
+        width: 50%;
+        margin-top: 1em;
+        margin-bottom: 4em; } }
+  @media screen and (max-width: 1024px) and (min-width: 480px) {
+    .items-message-item img {
+      height: 50%;
+      width: 50%; } }
 
 @media screen and (min-width: 768px) {
   .items-message-item-rent:after {
@@ -585,5 +604,8 @@ footer * {
   margin-left: 34.11922%; }
 
 footer.section {
-  margin-top: 6em;
   border-top: 6px solid #3c4d27; }
+  @media screen and (min-width: 768px) {
+    footer.section {
+      margin-top: 6em;
+      padding: 2em; } }
