@@ -14,22 +14,22 @@ gulp.task('sass', function() {
 // HANDLEBARS
 // ============================================================
 
-var handlebars = require('gulp-handlebars');
-var wrap = require('gulp-wrap');
-var declare = require('gulp-declare');
-var concat = require('gulp-concat');
+// var handlebars = require('gulp-handlebars');
+// var wrap = require('gulp-wrap');
+// var declare = require('gulp-declare');
+// var concat = require('gulp-concat');
  
-gulp.task('templates', function(){
-  gulp.src('source/templates/*.hbs')
-    .pipe(handlebars())
-    .pipe(wrap('Handlebars.template(<%= contents %>)'))
-    .pipe(declare({
-      namespace: 'MyApp.templates',
-      noRedeclare: true, // Avoid duplicate declarations 
-    }))
-    .pipe(concat('templates.js'))
-    .pipe(gulp.dest('build/js/'));
-});
+// gulp.task('templates', function(){
+//   gulp.src('source/templates/*.hbs')
+//     .pipe(handlebars())
+//     .pipe(wrap('Handlebars.template(<%= contents %>)'))
+//     .pipe(declare({
+//       namespace: 'MyApp.templates',
+//       noRedeclare: true, // Avoid duplicate declarations 
+//     }))
+//     .pipe(concat('templates.js'))
+//     .pipe(gulp.dest('build/js/'));
+// });
 
 // WATCH
 // ============================================================
@@ -43,17 +43,24 @@ gulp.task('default',function() {
 // FTP
 // ============================================================
 
-// var gulp = require('gulp');
-// var gulpDeployFtp = require('gulp-deploy-ftp');
- 
-// var options = {
-//   user: david.pizza,
-//   password: 3HubbardAve!,
-//   port: 22,
-//   host: s14088.gridserver.com,
-//   uploadPath: domains/david.pizza/html/sweaters
-// };
- 
-// gulp.src('path/to/file')
-//   .pipe(gulpDeployFtp(options))
-//   .pipe(gulp.dest('dest'));
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var ftp = require('vinyl-ftp');
+var ftpconfig = require('./ftpconfig');
+
+gulp.task('upload', function(){
+    process.stdout.write('Transfering files...\n');
+
+    var conn = ftp.create(ftpconfig);
+
+    var globs = [
+        'public/**'
+    ];
+
+    return gulp.src(globs, {base: '.', buffer: false})
+
+    .pipe(conn.newer('/'))
+    .pipe(conn.dest('/'));
+
+    process.stdout.write('Transfer complete...\n');
+});
