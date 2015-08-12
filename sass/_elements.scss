@@ -9,32 +9,38 @@
 // ====================
 
 body {
-	@include media($tablet) {
-		@include margin(8em null);
-	}
-	@include margin(6em 2em);
 	color: $green;
-	background-image: url('../img/asset_trim-hr-down.svg'),
-		                url('../img/asset_trim-hr-up.svg');
-	background-position: top 1em center,
-	                     bottom 1em center;
-	background-size: 13em, 13em;
 	background-repeat: no-repeat;
+
 	@include media(min-width $desktop) {
-		background-image: url('../img/asset_trim-top-left.svg'),
-		                  url('../img/asset_trim-top-right.svg'),
-		                  url('../img/asset_trim-bottom-left.svg'),
-		                  url('../img/asset_trim-bottom-right.svg'),
-		                  url('../img/asset_trim-hr-down.svg'),
-		                	url('../img/asset_trim-hr-up.svg');
+		@include margin(8em null);
+		background-image: 	 url('../img/asset_trim-top-left.svg'),
+			                	 url('../img/asset_trim-top-center.svg'),
+			                	 url('../img/asset_trim-top-right.svg'),
+			                	 url('../img/asset_trim-bottom-left.svg'),
+			                	 url('../img/asset_trim-bottom-center.svg'),
+			                	 url('../img/asset_trim-bottom-right.svg');
 		background-position: top 1em left 1em,
+		                     top .9em center,
 		                     top 1em right 1em,
 		                     bottom 1em left 1em,
-		                     bottom 1em right 1em,
-		                     top 1em center,
-	                     	 bottom 1em center;
-		background-size: 8em, 8em, 8em, 8em, 13em, 13em;
-		background-repeat: no-repeat;
+		                     bottom .6em center,
+		                     bottom 1em right 1em;
+		background-size: 		 8em,
+												 14em,
+												 8em,
+												 8em,
+												 14em,
+												 8em;
+	}
+	@include media(max-width $desktop) {
+		@include margin(6em 2em);
+		background-image: 	 url('../img/asset_trim-top-center.svg'),
+			                	 url('../img/asset_trim-bottom-center.svg');
+		background-position: top 1em center,
+		                     bottom 1em center;
+		background-size: 		 13em,
+												 13em;
 	}
 }
 
@@ -59,17 +65,14 @@ h1, h2 {
 
 h1 {
 	@include margin(0);
-	font-size: 6em;
-	line-height: 1em;
 	color: $red;
 	text-shadow: -10px 10px 0 $light;
+	line-height: 1em;
+	@include media(min-width $tablet) {
+		font-size: 6em;
+	}
 	@include media(max-width $tablet) {
 		font-size: 4em;
-		line-height: 1em;
-	}
-	@include media(max-width $portrait) {
-		font-size: 3em;
-		line-height: 1em;
 	}
 }
 
@@ -100,6 +103,12 @@ p {
 	font-weight: 400;
 }
 
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 strong {
 	@include margin(2em null null);
 	display: block;
@@ -125,19 +134,36 @@ footer {
 	}
 }
 
-.title-stroke {
-	display: block;
-	@include margin(4em null null);
-	border-top: 6px solid $green;
-	text-align: center;
+.title {
 	h3 {
+		@include pad(0 1em);
+	}
+}
+
+.stroke {
+	@include media(min-width $tablet) {
+		display: block;
+		@include margin(4em null null);
+		border-top: 6px solid $green;
+		text-align: center;
+	}
+}
+
+.stroke-inner {
+	@include media(min-width $tablet) {
 		@include margin(0);
 		@include pad(0 1.4rem);
 		display: inline-block;
 		position: relative;
 		top: -1rem;
 		line-height: 1em;
-		background-color: $white;
+		* {
+			@include margin(0 null);
+			@include pad(0 null);
+		}
+		> * {
+			background-color: $white;
+		}
 	}
 }
 
@@ -255,10 +281,20 @@ footer {
 	@include shift(4);
 }
 
-footer.section {
-	@include media(min-width $tablet){
-		@include margin(6em null null);
-		@include pad(null null 2em);
+.section-footer {
+	@include margin(6em null null);
+}
+
+.footer-nav {
+	text-align: center;
+	li {
+		@include media(min-width $portrait) {
+			display: inline-block;
+		}
+		@include margin(0 .2em);
+		a {
+			@include pad(0 1em);
+			display: block;
+		}
 	}
-	border-top: 6px solid $green;
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,13 +10,11 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,900,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Cutive+Mono' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Vampiro+One' rel='stylesheet' type='text/css'>
 
-  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -28,9 +26,11 @@
   <div class="title">
     <h4>Holiday Party Supply Co.</h4>
     <h1>Merry Sweaters</h1>
-    <span class="title-stroke">
-      <h3>All proceeds go to Toys 4 Tots</h3>
-    </span>
+    <div class="stroke">
+      <div class="stroke-inner">
+        <h3>All proceeds go to Toys 4 Tots</h3>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -59,7 +59,7 @@
   <article class="items-sales-item">
     <img src="img/asset_item-sales-time.svg" class="items-sales-image">
     <h3>Save Time</h3>
-    <p>It’s actually pretty tricky to find a real treasure. You basically have to drive all around town with no guaruntees.</p>
+    <p>It’s actually pretty tricky to find a good sweater. You basically have to drive all around town with no guaruntees.</p>
   </article>
   <article class="items-sales-item">
     <img src="img/asset_item-sales-money.svg" class="items-sales-image">
@@ -73,15 +73,30 @@
   </article>
 </section>
 
-<footer class="section">
-  <h3><a href="about.html">Learn More About The Workshop</a></h3>
-  <h3><a href="faq.html">Read Rudolph’s FAQ</a></h3>
+<footer class="section section-footer">
+  <div class="footer-nav">
+    <span class="stroke">
+      <ul class="stroke-inner">
+        <li><a href="index.html"><h3>Home</h3></a></li>
+        <li><a href="about.html"><h3>About</h3></a></li>
+        <li><a href="faq.html"><h3>FAQ</h3></a></li>
+      </ul>
+    </span>
+  </div>
   <h4>* Plus Sleighing Tax</h4>
   <p>&copy;Copyright Merry Sweaters LLC 2015</p>
 </footer>
 
-<!-- SCRIPT -->
+<!-- Background trim -->
+<span class="bg-trim-top-left"></span>
+<span class="bg-trim-top-center"></span>
+<span class="bg-trim-top-right"></span>
+<span class="bg-trim-bottom-left"></span>
+<span class="bg-trim-bottom-center"></span>
+<span class="bg-trim-bottom-right"></span>
 
+
+<!-- SCRIPT -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
 <script src="js/plugins.js"></script>

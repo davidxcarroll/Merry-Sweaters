@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <title>Handlebars Demo</title>
+  <script type="text/javascript" src="Handlebars.js"></script>
+</head>
+<body>
+
+<!-- Template -->
+
+<script id="Handlebars-Template" type="text/x-handlebars-template">
+</script>
+
+<!-- Data -->
+
+<script>
+ 
+var Ajax = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+ 
+Ajax.onreadystatechange = function(){
+    if (Ajax.readyState == 4 && Ajax.status == 200)
+    {
+        //Parse the JSON data
+        var RecipeData = JSON.parse(Ajax.responseText);
+         
+        //Get the Template from above
+        var Source = document.getElementById("Handlebars-Template").textContent;
+         
+        //Compile the actual Template file
+        var Template = Handlebars.compile(Source);
+         
+        //Generate some HTML code from the compiled Template
+        var HTML = Template({ Recipes : RecipeData });
+         
+        //Replace the body section with the new code.
+        document.body.innerHTML = HTML;
+    }
+}
+ 
+Ajax.open("GET","Recipe.php", true);
+Ajax.send();
+ 
+</script>
+
+</body>
+</html>

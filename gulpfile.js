@@ -11,11 +11,33 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./css/'));
 });
 
+// HANDLEBARS
+// ============================================================
+
+var handlebars = require('gulp-handlebars');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
+var concat = require('gulp-concat');
+ 
+gulp.task('templates', function(){
+  gulp.src('source/templates/*.hbs')
+    .pipe(handlebars())
+    .pipe(wrap('Handlebars.template(<%= contents %>)'))
+    .pipe(declare({
+      namespace: 'MyApp.templates',
+      noRedeclare: true, // Avoid duplicate declarations 
+    }))
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('build/js/'));
+});
+
 // WATCH
 // ============================================================
 
 gulp.task('default',function() {
+    gulp.watch('*.html',['html']);
     gulp.watch('sass/**/*.scss',['sass']);
+    gulp.watch('source/templates/**/*.hbs',['handlebars']);
 });
 
 // FTP
