@@ -6,61 +6,41 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 
 gulp.task('sass', function() {
-    gulp.src('sass/**/*.scss')
+    gulp.src('_src/sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css/'));
+        .pipe(gulp.dest('./_public/_css'));
 });
-
-// HANDLEBARS
-// ============================================================
-
-// var handlebars = require('gulp-handlebars');
-// var wrap = require('gulp-wrap');
-// var declare = require('gulp-declare');
-// var concat = require('gulp-concat');
- 
-// gulp.task('templates', function(){
-//   gulp.src('source/templates/*.hbs')
-//     .pipe(handlebars())
-//     .pipe(wrap('Handlebars.template(<%= contents %>)'))
-//     .pipe(declare({
-//       namespace: 'MyApp.templates',
-//       noRedeclare: true, // Avoid duplicate declarations 
-//     }))
-//     .pipe(concat('templates.js'))
-//     .pipe(gulp.dest('build/js/'));
-// });
 
 // WATCH
 // ============================================================
 
 gulp.task('default',function() {
-    gulp.watch('*.html',['html']);
-    gulp.watch('sass/**/*.scss',['sass']);
-    gulp.watch('source/templates/**/*.hbs',['handlebars']);
+    gulp.watch('_src/sass/**/*.scss',['sass']);
 });
 
 // FTP
 // ============================================================
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var ftp = require('vinyl-ftp');
-var ftpconfig = require('./ftpconfig');
+var gulp = require( 'gulp' );
+var gutil = require( 'gulp-util' );
+var ftp = require( 'vinyl-ftp' );
 
-gulp.task('upload', function(){
-    process.stdout.write('Transfering files...\n');
+gulp.task( 'deploy', function() {
 
-    var conn = ftp.create(ftpconfig);
+    var conn = ftp.create( {
+        host:     's14088.gridserver.com',
+        user:     'email@david.pizza',
+        password: '+*yk2UI_0pg',
+        parallel: 10,
+        log:      gutil.log
+    } );
 
     var globs = [
-        'public/**'
+        '_public/**'
     ];
 
-    return gulp.src(globs, {base: '.', buffer: false})
+    return gulp.src( globs, { base: '_public', buffer: false } )
+        .pipe( conn.newer( '.' ) ) // only upload newer files
+        .pipe( conn.dest( '.' ) );
 
-    .pipe(conn.newer('/'))
-    .pipe(conn.dest('/'));
-
-    process.stdout.write('Transfer complete...\n');
-});
+} );
