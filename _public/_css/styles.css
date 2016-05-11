@@ -627,3 +627,28 @@ footer * {
     .footer-nav li a {
       padding: 0 1em;
       display: block; }
+
+body {
+  background-color: #999999; }
+
+hr {
+  clear: both; }
+
+#knit {
+  float: left;
+  padding: 2em;
+  background-color: #999999; }
+
+.loop {
+  font-size: .6em;
+  float: left;
+  width: 1em;
+  height: 2.5em;
+  margin-bottom: -.2em;
+  border: 0.2em solid #cccccc; }
+  .loop:nth-child(even) {
+    border-radius: 2em 10em 2em 10em;
+    background: linear-gradient(70deg, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6); }
+  .loop:nth-child(odd) {
+    border-radius: 10em 2em 10em 2em;
+    background: linear-gradient(-70deg, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6, #fff, #e6e6e6); }
